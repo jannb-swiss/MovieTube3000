@@ -4,6 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 body{
   background-color: #1d1d1d;
 }
@@ -15,6 +20,6 @@ section{
   min-height: 70vh;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 

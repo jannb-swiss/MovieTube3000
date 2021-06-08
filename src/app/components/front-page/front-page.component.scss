@@ -1,0 +1,11 @@
+.movies {
+    display: flex;
+    flex-flow: column;
+    max-width: 100vw;
+    padding: 15px;
+
+    app-slider {
+        width: 100%;
+        padding: 15px 0;
+    }
+}

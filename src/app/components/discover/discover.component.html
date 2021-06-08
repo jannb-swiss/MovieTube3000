@@ -1,0 +1,19 @@
+<div class="discover">
+
+    <h2>Genre auswählen</h2>
+
+    <select class="form-control">
+        <option
+            *ngFor="let genre of genres"
+            (click)="select(genre)"
+        >{{genre.name}}</option>
+    </select>
+
+    <app-grid-container
+        *ngIf="movies !== null"
+        [title]="genre.name"
+        [movies]="movies"
+        (pageEvent)="goTo($event)"
+    ></app-grid-container>
+
+</div>

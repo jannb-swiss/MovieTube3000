@@ -1,0 +1,38 @@
+<div *ngIf="!isLoading && movie != null" class="movie" id="movie">
+    <div class="movie-inner" >
+
+        <div class="close" (click)="hide()">
+            <span class="material-icons">close</span>
+        </div>
+
+        <img class="movie-inner-header" src="{{image}}" alt="" />
+
+        <div class="movie-inner-body">
+
+            <h2>{{movie.title}}</h2>
+
+            <div class="movie-inner-meta">
+                <span>{{getMovieDate()}}</span>
+                <span>{{details.runtime}} min</span>
+                <span>{{details.status}}</span>
+                <span>{{details.vote_average * 10}}%</span>
+            </div>
+
+            <div class="movie-inner-genres">
+                <div class="badge bg-dark" *ngFor="let genre of details.genres">{{genre.name}}</div>
+            </div>
+
+            <p>{{movie.overview}}</p>
+
+            <span (click)="like()" class="movie-inner-like material-icons">
+                {{isLiked ? 'favorite' : 'favorite_border' }}
+            </span>
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isLoading === true" class="loader">
+
+</div>
+

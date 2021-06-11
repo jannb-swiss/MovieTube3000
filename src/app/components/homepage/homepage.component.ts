@@ -5,10 +5,10 @@ import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-all',
-  templateUrl: './all.component.html',
-  styleUrls: ['./all.component.scss']
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss']
 })
-export class AllComponent implements OnInit {
+export class HomepageComponent implements OnInit {
 
   public cinema: MovieResponse | null = null;
   public popular: MovieResponse | null = null;

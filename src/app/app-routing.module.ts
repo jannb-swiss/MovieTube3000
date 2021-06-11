@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AllComponent} from "./components/all/all.component";
+import {HomepageComponent} from "./components/homepage/homepage.component";
 
 
 

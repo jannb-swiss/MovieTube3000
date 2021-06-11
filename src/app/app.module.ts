@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {HeaderComponent} from "./components/header/header.component";
-import {MovieComponent} from "./components/movie/movie.component";
+import {MovieDetailComponent} from "./components/movie-detail/movie-detail.component";
 
 import {RouterModule, Routes} from "@angular/router";
 import {CommonModule} from "@angular/common";
@@ -14,7 +14,7 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserModule} from "@angular/platform-browser";
 import { SliderComponent } from './components/slider/slider.component';
-import { AllComponent } from './components/all/all.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import {NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -29,9 +29,9 @@ const routes: Routes = [
     SliderComponent,
     HeaderComponent,
     //GenersComponent,
-    MovieComponent,
+    MovieDetailComponent,
     SliderComponent,
-    AllComponent,
+    HomepageComponent,
   ],
   imports: [
     RouterModule,

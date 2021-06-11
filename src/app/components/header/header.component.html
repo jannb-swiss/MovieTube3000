@@ -15,7 +15,7 @@
               <div *ngIf="movieForecast && movieForecast.length > 0" class="forecast-list">
                 <div (click)="click(result)" *ngFor="let result of movieForecast" class="forecast-item">
                   <span class="forecast-item-title">{{result.title}}</span>
-                  <span class="forecast-item-date">{{result.release_date}}</span>
+                  <span class="forecast-item-details">{{result.original_language}} / {{result.release_date}}</span>
                 </div>
               </div>
             </form>

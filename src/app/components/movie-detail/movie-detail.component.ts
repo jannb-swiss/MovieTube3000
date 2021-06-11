@@ -9,10 +9,10 @@ import {formatDate} from "../../utility/string.utility";
 
 @Component({
     selector: "app-movie",
-    templateUrl: "./movie.component.html",
-    styleUrls: ["./movie.component.scss"]
+    templateUrl: "./movie-detail.component.html",
+    styleUrls: ["./movie-detail.component.scss"]
 })
-export class MovieComponent {
+export class MovieDetailComponent {
 
     public image: string;
     public movie: Media | null;
@@ -50,7 +50,7 @@ export class MovieComponent {
         private renderer: Renderer2
     ) {
         this.renderer.listen('window', 'click',(e:Event)=>{
-            if(e.target == document.getElementById('movie') && this.movie !== null){
+            if(e.target == document.getElementById('movie-detail') && this.movie !== null){
                 this.hide();
             }
         });

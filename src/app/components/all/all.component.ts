@@ -46,12 +46,12 @@ export class AllComponent implements OnInit {
   }
   public selectGenre(genre: Genre): void {
     this.selectedGenre = genre;
-    this.discoverGenre();
+    this.discoverGenre(1);
   }
 
-  public discoverGenre(): void {
+  public discoverGenre(page: number): void {
     if (this.selectedGenre) {
-      this.moviesService.discover(this.selectedGenre.id).subscribe((response) => {
+      this.moviesService.discover(this.selectedGenre.id, page).subscribe((response) => {
         this.movies = response;
       });
     }

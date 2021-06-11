@@ -23,9 +23,10 @@ export class MoviesService {
         ]));
     }
 
-    public discover(genre: number): Observable<MovieResponse> {
+    public discover(genre: number, page: number): Observable<MovieResponse> {
         return this.http.get<MovieResponse>(MoviesService.getUrl(`discover/movie`, [
-            {key: "with_genres", value: genre}
+            {key: "with_genres", value: genre},
+          {key: 'page', value: page},
         ]))
     }
 

@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import {Genre, MovieResponse} from "../../models/media.model";
+import {MoviesService} from "../../services/movies.service";
+
+@Component({
+  selector: 'app-discover-page',
+  templateUrl: './discover-page.component.html',
+  styleUrls: ['./discover-page.component.scss']
+})
+export class DiscoverPageComponent implements OnInit {
+
+  public genres: Array<Genre> = [];
+  public movies: MovieResponse | null = null;
+  public selectedGenre: Genre | null = null;
+
+  constructor(private moviesService: MoviesService) {
+  }
+
+  ngOnInit(): void {
+    this.getGenres();
+  }
+
+  private getGenres(): void {
+    this.moviesService.getGenres('de-CH').subscribe(response => {
+      this.genres = response.genres;
+      this.selectGenre(this.genres[0]);
+    });
+  }
+
+  public selectGenre(genre: Genre): void {
+    this.selectedGenre = genre;
+    this.discoverGenre();
+  }
+
+  public discoverGenre(): void {
+    if (this.selectedGenre) {
+      this.moviesService.discover(this.selectedGenre.id).subscribe((response) => {
+        this.movies = response;
+      });
+    }
+  }
+
+}

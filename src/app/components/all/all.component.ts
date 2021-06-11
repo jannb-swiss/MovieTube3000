@@ -29,29 +29,32 @@ export class AllComponent implements OnInit {
   @ViewChild('stickHeader') header: ElementRef;
   headerBGUrl: string;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService) {
+  }
 
   ngOnInit(): void {
-    this.moviesService.getPopularMovies("de-CH", "CH").subscribe((data: MovieResponse) => {
+    this.moviesService.getPopularMovies().subscribe((data: MovieResponse) => {
       this.popular = data;
-    this.headerBGUrl = 'https://image.tmdb.org/t/p/original' + this.popular.results[0].backdrop_path});
+      this.headerBGUrl = 'https://image.tmdb.org/t/p/original' + this.popular.results[0].backdrop_path
+    });
     this.moviesService.getMoviesCurrentlyInTheater("de-CH", "CH").subscribe((data: MovieResponse) => (
       this.cinema = data));
-    this.moviesService.getBestRatedMovies("de-CH", "CH").subscribe((data: MovieResponse) => (
+    this.moviesService.getBestRatedMovies().subscribe((data: MovieResponse) => (
       this.best = data));
     this.moviesService.getGenres('de-CH').subscribe(response => {
       this.genres = response.genres;
       this.selectGenre(this.genres[0]);
     });
   }
+
   public selectGenre(genre: Genre): void {
     this.selectedGenre = genre;
-    this.discoverGenre(1);
+    this.discoverGenre();
   }
 
-  public discoverGenre(page: number): void {
+  public discoverGenre(): void {
     if (this.selectedGenre) {
-      this.moviesService.discover(this.selectedGenre.id, page).subscribe((response) => {
+      this.moviesService.discover(this.selectedGenre.id).subscribe((response) => {
         this.movies = response;
       });
     }
@@ -61,11 +64,8 @@ export class AllComponent implements OnInit {
   // tslint:disable-next-line:typedef
   handleScroll() {
     const windowScroll = window.pageYOffset;
-
-    if (windowScroll > this.header.nativeElement.offsetHeight) {
-      this.sticky = true;
-    } else {
-      this.sticky = false;
+    if (this.header && this.header.nativeElement) {
+      this.sticky = windowScroll > this.header.nativeElement.offsetHeight;
     }
   }
 

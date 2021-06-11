@@ -13,7 +13,7 @@ export class SliderComponent implements OnInit {
   @Output() onPageChange: EventEmitter<number> = new EventEmitter<number>();
 
   @Input() sliderConfig;
-  @Input() movies: MovieResponse;
+  @Input() movies: MovieResponse | null;
   @Input() title: string;
 
   constructor(private tmdb: TMDBService, private modal: MovieModalService) { }

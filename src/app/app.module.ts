@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {MovieComponent} from "./components/movie/movie.component";
-import {DiscoverComponent} from "./components/discover/discover.component";
+
 import {RouterModule, Routes} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -17,7 +17,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { AllComponent } from './components/all/all.component';
 import {NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import { MovieGenereComponent } from './movie-genere/movie-genere.component';
-import { DiscoverPageComponent } from './sites/discover-page/discover-page.component';
+
 
 const routes: Routes = [
 
@@ -30,15 +30,9 @@ const routes: Routes = [
     HeaderComponent,
     //GenersComponent,
     MovieComponent,
-
-
-
-    DiscoverComponent,
-
     SliderComponent,
     AllComponent,
     MovieGenereComponent,
-    DiscoverPageComponent
   ],
   imports: [
     RouterModule,

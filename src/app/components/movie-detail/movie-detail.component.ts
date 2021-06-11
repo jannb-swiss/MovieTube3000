@@ -3,7 +3,6 @@ import {Media, MovieDetails} from "../../models/media.model";
 import {TMDBService} from "../../services/tmdb.service";
 import {MovieModalService} from "../../services/movie-modal.service";
 import {MoviesService} from "../../services/movies.service";
-import {LikesService} from "../../services/likes.service";
 import {formatDate} from "../../utility/string.utility";
 
 
@@ -25,9 +24,6 @@ export class MovieDetailComponent {
     set media(movie: Media | null) {
         if (movie !== null) {
             this.movie = movie;
-            this.likeService.isLiked(movie).subscribe((response) => {
-                this.isLiked = response.status === 204;
-            });
             this.movieService.getDetails(movie).subscribe(details => {
                 this.details = details;
                 this.isLoading = false;
@@ -46,7 +42,6 @@ export class MovieDetailComponent {
         private tmdb: TMDBService,
         private modal: MovieModalService,
         private movieService: MoviesService,
-        private likeService: LikesService,
         private renderer: Renderer2
     ) {
         this.renderer.listen('window', 'click',(e:Event)=>{

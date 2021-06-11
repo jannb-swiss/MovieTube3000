@@ -16,17 +16,16 @@ export class MoviesService {
         return `${API_URL}/${API_VERSION}/${uri}?api_key=${API_KEY}` + query.map(item => `&${item.key}=${item.value}`).join('');
     }
 
-    public find(search: string, page: number): Observable<MovieResponse> {
+    public find(search: string): Observable<MovieResponse> {
         return this.http.get<MovieResponse>(MoviesService.getUrl(`search/movie`, [
             {key: "query", value: search},
-            {key: "page", value: page},
+            //{key: 'page', value: page}
         ]));
     }
 
-    public discover(genre: number, page: number): Observable<MovieResponse> {
+    public discover(genre: number): Observable<MovieResponse> {
         return this.http.get<MovieResponse>(MoviesService.getUrl(`discover/movie`, [
-            {key: "with_genres", value: genre},
-            {key: "page", value: page},
+            {key: "with_genres", value: genre}
         ]))
     }
 
@@ -34,33 +33,25 @@ export class MoviesService {
         return this.http.get<Media>(MoviesService.getUrl(`movie/${id}`));
     }
 
-    public getPopularMovies(language: string, page: number, region: string): Observable<MovieResponse> {
-        return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/popular`, [
-            {key: "language", value: language},
-            {key: "page", value: page},
-            {key: "region", value: region},
-        ]));
+    public getPopularMovies(language: string, region: string): Observable<MovieResponse> {
+        return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/popular`));
     }
 
-    public getBestRatedMovies(language: string, page: number, region: string): Observable<MovieResponse> {
-        return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/top_rated`, [
-            {key: "language", value: language},
-            {key: "page", value: page},
-            {key: "region", value: region},
-        ]));
+    public getBestRatedMovies(language: string, region: string): Observable<MovieResponse> {
+        return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/top_rated`));
     }
 
-    public getMoviesCurrentlyInTheater(language: string, page: number, region: string): Observable<MovieResponse> {
-        return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/now_playing`, [
-            {key: "language", value: language},
-            {key: "page", value: page},
-            {key: "region", value: region},
-        ]));
+    public getMoviesCurrentlyInTheater(language: string, region: string): Observable<MovieResponse> {
+        return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/now_playing`));
     }
+
+  public getMoviesCurrentAction(language: string, region: string): Observable<MovieResponse> {
+    return this.http.get<MovieResponse>(MoviesService.getUrl(`movie/action`));
+  }
 
     public getGenres(language: string): Observable<GenreResponse> {
         return this.http.get<GenreResponse>(MoviesService.getUrl(`genre/movie/list`, [
-            {key: "language", value: language},
+            {key: "language", value: language}
         ]));
     }
 

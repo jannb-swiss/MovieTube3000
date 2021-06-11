@@ -1,7 +1,6 @@
-import {Component, OnInit} from "@angular/core";
-import {Genre, GenreResponse, MovieResponse} from "../../models/media.model";
+import {Component, OnInit} from '@angular/core';
 import {MoviesService} from "../../services/movies.service";
-
+import {Genre, GenreResponse, MovieResponse} from "../../models/media.model";
 
 @Component({
     selector: 'app-discover',
@@ -25,11 +24,11 @@ export class DiscoverComponent implements OnInit {
 
     public select(genre: Genre) {
         this.genre = genre;
-        this.goTo(1);
+        this.goTo();
     }
 
-    public goTo(page: number) {
-        this.movieService.discover(this.genre.id, page).subscribe((response) => {
+    public goTo() {
+        this.movieService.discover(this.genre.id).subscribe((response) => {
             this.movies = response;
         });
     }

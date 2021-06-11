@@ -20,6 +20,7 @@ export class MovieComponent {
     public isLiked: boolean = false;
     public isLoading: boolean = true;
 
+
     @Input()
     set media(movie: Media | null) {
         if (movie !== null) {
@@ -72,5 +73,4 @@ export class MovieComponent {
             this.isLiked = !this.isLiked
         }
     };
-
 }

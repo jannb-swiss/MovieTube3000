@@ -1,0 +1,47 @@
+<div class="container">
+  <app-header></app-header>
+  <app-movie></app-movie>
+  <section>
+    <div class="start-site" [ngStyle]="{
+      'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('+headerBGUrl+')'
+      }">
+      <h2>{{popular?.results[0].title}}</h2>
+      <div class="header__buttons">
+        <button class="play-button">
+          <mat-icon>arrow_right</mat-icon>
+          <span>favourites</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="body">
+      <app-slider title="Im Kino" [movies]="cinema" [sliderConfig]="sliderConfig"></app-slider>
+      <app-slider title="Beliebt" [movies]="best" [sliderConfig]="sliderConfig"></app-slider>
+      <app-slider title="Populär" [movies]="popular" [sliderConfig]="sliderConfig"></app-slider>
+      <app-slider title="private" [movies]="popular" [sliderConfig]="sliderConfig"></app-slider>
+    </div>
+    <div class="container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <h1>Genre auswählen</h1>
+          </div>
+          <div class="col-8">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-secondary" id="genreDropdown"
+                      ngbDropdownToggle>{{selectedGenre?.name}}</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button *ngFor="let genre of genres" ngbDropdownItem (click)="selectGenre(genre)">{{genre.name}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="movies && selectedGenre">
+        <app-slider title="{{selectedGenre.name}}" [movies]="movies" [sliderConfig]="sliderConfig"></app-slider>
+      </div>
+    </div>
+  </section>
+</div>

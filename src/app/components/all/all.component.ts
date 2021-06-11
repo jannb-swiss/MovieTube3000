@@ -10,7 +10,6 @@ import {Subscription} from "rxjs";
 })
 export class AllComponent implements OnInit {
 
-  public sticky = false;
   public cinema: MovieResponse | null = null;
   public popular: MovieResponse | null = null;
   public best: MovieResponse | null = null;
@@ -26,7 +25,6 @@ export class AllComponent implements OnInit {
     autoplay: false
   };
 
-  @ViewChild('stickHeader') header: ElementRef;
   headerBGUrl: string;
 
   constructor(private moviesService: MoviesService) {
@@ -60,14 +58,6 @@ export class AllComponent implements OnInit {
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
-  // tslint:disable-next-line:typedef
-  handleScroll() {
-    const windowScroll = window.pageYOffset;
-    if (this.header && this.header.nativeElement) {
-      this.sticky = windowScroll > this.header.nativeElement.offsetHeight;
-    }
-  }
 
   ngOnDestroy(): void {
   }

@@ -1,33 +1,28 @@
 <header>
-    <div class="header">
-        <!--MAIN AREA-->
-        <div class="header__main" id="stickyHeader" [class.sticky]="sticky" #stickHeader>
-            <div class="navbar__left">
-                <a routerLink="/">
-                    <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="logo">
-                </a>
-            </div>
-          <div class="navbar__right">
-            <ul>
-              <li>
-                <form class="search-form">
-                  <input class="search-bar" placeholder="search" [formControl]="sbar" autofocus />
-
-                  <div *ngIf="predictions && predictions.length > 0" class="prediction-list">
-                    <div (click)="click(result)" *ngFor="let result of predictions" class="prediction-item">
-                      <span class="prediction-item-title">{{result.title}}</span>
-                      <span class="prediction-item-date">{{result.release_date}}</span>
-                    </div>
-                  </div>
-                </form>
-              </li>
-
-              <li><a routerLink="['/favorite']"><span>favourite</span></a></li>
-
-
-            </ul>
-          </div>
-        </div>
-    </div>  <!--HEADER MAIN ENDS HERE-->
+  <div class="header">
+    <!--MAIN AREA-->
+    <div class="header__main" id="stickyHeader" [class.sticky]="sticky" #stickHeader>
+      <div class="navbar__left">
+        <a routerLink="/">
+          <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="logo">
+        </a>
+      </div>
+      <div class="navbar__right">
+        <ul>
+          <li>
+            <form class="search-form">
+              <input class="search-bar" placeholder="search" [formControl]="searchBar" autofocus/>
+              <div *ngIf="movieForecast && movieForecast.length > 0" class="forecast-list">
+                <div (click)="click(result)" *ngFor="let result of movieForecast" class="forecast-item">
+                  <span class="forecast-item-title">{{result.title}}</span>
+                  <span class="forecast-item-date">{{result.release_date}}</span>
+                </div>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>  <!--HEADER MAIN ENDS HERE-->
 
 </header>

@@ -59,18 +59,4 @@ export class MovieComponent {
     public hide = (): void  =>this.modal.showMovie(null);
 
     public getMovieDate = () => formatDate(this.details.release_date);
-
-    public like = (): any => this.isLiked
-        ? this.likeService.unlike(this.movie).subscribe(
-            (response: Response) => this.changeLikeStateFromResponse(response)
-        )
-        : this.likeService.like(this.movie).subscribe(
-            (response: Response) => this.changeLikeStateFromResponse(response)
-        );
-
-    private changeLikeStateFromResponse(response: Response): void {
-        if (response.status === 200) {
-            this.isLiked = !this.isLiked
-        }
-    };
 }

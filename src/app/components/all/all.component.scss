@@ -71,7 +71,6 @@
 }
 
 
-
 ul {
   list-style: none;
   display: flex;
@@ -97,5 +96,16 @@ ul {
 
 .slider-margin {
   margin-bottom: 60px;
+}
+
+.genre-h1{
+  color: white;
+}
+
+.genre-button {
+  background-color: black;
+  margin: 0 5px 20px 5px;
+  color: white;
+  border-color: white;
 }
 

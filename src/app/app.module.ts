@@ -16,7 +16,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import { SliderComponent } from './components/slider/slider.component';
 import { AllComponent } from './components/all/all.component';
 import {NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
-import { MovieGenereComponent } from './movie-genere/movie-genere.component';
+
 
 
 const routes: Routes = [
@@ -32,7 +32,6 @@ const routes: Routes = [
     MovieComponent,
     SliderComponent,
     AllComponent,
-    MovieGenereComponent,
   ],
   imports: [
     RouterModule,

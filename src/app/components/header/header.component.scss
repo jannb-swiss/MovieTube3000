@@ -9,6 +9,7 @@
 }
 
 .header__main {
+
   display: flex;
   padding: 20px;
   width: 100%;
@@ -74,15 +75,16 @@
 
   .search-bar {
     outline: 0;
-    border-width: 0 0 1px;
-    border-color: gray;
-    width: 200px;
+    border-width: 0 0 2px;
+    border-color: lightgray;
+    width: 250px;
 
     &:focus {
       border-color: white;
     }
   }
-  .prediction-list {
+
+  .forecast-list {
     position: absolute;
     display: flex;
     flex-flow: column;
@@ -95,12 +97,12 @@
     z-index: 9999;
     padding: 0;
 
-    .prediction-item {
+    .forecast-item {
       display: flex;
       flex-flow: column;
       cursor: pointer;
       color: #ffffff;
-      padding: 5px 10px;
+      padding: 5px 15px;
 
       &:hover {
         background-color: #383838;
@@ -114,42 +116,10 @@
       &-date {
         font-size: 12px;
       }
-
-
     }
   }
-
 }
 
-
-
-
-
-.button {
-  color: #222222;
-  text-decoration: none;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  background: lightgray;
-  margin-left: 10px;
-  border: none;
-  border-radius: 5px;
-  transition: all 0.3s ease-out;
-
-  .material-icons {
-    font-size: 30px;
-  }
-
-  span {
-    padding-left: 5px;
-    display: none;
-  }
-
-  &:hover span {
-    display: inline;
-  }
-}
 
 
 

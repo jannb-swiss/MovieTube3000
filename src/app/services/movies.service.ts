@@ -20,7 +20,6 @@ export class MoviesService {
   public find(search: string): Observable<MovieResponse> {
     return this.http.get<MovieResponse>(MoviesService.getUrl(`search/movie`, [
       {key: "query", value: search},
-
     ]));
   }
 

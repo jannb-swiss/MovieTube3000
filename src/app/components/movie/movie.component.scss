@@ -17,15 +17,15 @@
         }
     }
 
-    &-inner {
+    &-details {
         max-width: 90vw;
         width: 1000px;
         position: relative;
         display: flex;
         overflow: hidden;
         transition: width, .5s;
-        background-color: #ffffff;
-        color: green;
+        background-color: black;
+        color: white;
 
         .close {
             position: absolute;
@@ -35,7 +35,7 @@
             cursor: pointer;
 
             span {
-                color: #222222;
+                color: white;
                 font-size: 32px;
             }
         }
@@ -47,6 +47,11 @@
 
         &-like {
             cursor: pointer;
+
+          .hover-like:hover{
+            color: red;
+          }
+
         }
 
         &-genres {
@@ -70,7 +75,7 @@
                 &:not(:last-child)::after {
                     position: absolute;
                     content: '';
-                    background-color: #222222;
+                    background-color: darkred;
                     width: 5px;
                     height: 5px;
                     right: 12px;
@@ -82,10 +87,6 @@
         &-body {
             position: relative;
             padding: 15px;
-
-            h2 {
-                font-weight: bold;
-            }
         }
 
     }

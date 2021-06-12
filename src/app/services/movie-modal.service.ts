@@ -4,14 +4,14 @@ import {Media} from "../models/media.model";
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class MovieModalService {
 
-    movie: Subject<Media> = new Subject<Media>();
+  movie: Subject<Media> = new Subject<Media>();
 
-    showMovie(movie: Media|null) {
-        this.movie.next(movie);
-    }
+  showMovie(movie: Media | null) {
+    this.movie.next(movie);
+  }
 
 }

@@ -1,0 +1,32 @@
+<div class="container">
+  <section>
+    <div class="start-site" [ngStyle]="{
+      'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('+headerBGUrl+')'
+      }">
+      <h2>{{popular?.results[0].title}}</h2>
+      <div class="start-site-button">
+        <button class="play-button">
+          <mat-icon>arrow_right</mat-icon>
+          <span>favourites</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="body">
+      <app-slider title="Im Kino" [movies]="cinema" [sliderConfig]="sliderConfig"></app-slider>
+      <app-slider title="Beliebt" [movies]="best" [sliderConfig]="sliderConfig"></app-slider>
+      <app-slider title="Populär" [movies]="popular" [sliderConfig]="sliderConfig"></app-slider>
+    </div>
+    <div class="container">
+      <h1 class="genre-h1">Genre</h1>
+    </div>
+    <div>
+      <button class="genre-button" *ngFor="let genre of genres" (click)="selectGenre(genre)">{{genre.name}}</button>
+    </div>
+    <div *ngIf="movies && selectedGenre">
+      <app-slider title="{{selectedGenre.name}}" [movies]="movies" [sliderConfig]="sliderConfig"></app-slider>
+    </div>
+  </section>
+</div>

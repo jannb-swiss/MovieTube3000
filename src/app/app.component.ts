@@ -12,8 +12,7 @@ import {MovieModalService} from "./services/movie-modal.service";
 export class AppComponent {
 
   public TMDBConfiguration: Configuration;
-  public activeMovie: Media|null = null;
-  public headerBGUrl: string;
+  public activeMovie: Media | null = null;
 
   constructor(private tmdbService: TMDBService, private movieModalService: MovieModalService) {
     this.movieModalService.movie.subscribe((movie: Media) => {

@@ -1,5 +1,5 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {Genre, GenreResponse, MovieResponse} from "../../models/media.model";
+import {Configuration, Genre, GenreResponse, Media, MovieResponse} from "../../models/media.model";
 import {MoviesService} from "../../services/movies.service";
 import {Subscription} from "rxjs";
 
@@ -16,7 +16,7 @@ export class HomepageComponent implements OnInit {
   public genres: Array<Genre> = [];
   public selectedGenre: Genre | null = null;
   public movies: MovieResponse | null = null;
-
+  public headerBGUrl: string;
 
   public sliderConfig = {
     slidesToShow: 6,
@@ -25,7 +25,6 @@ export class HomepageComponent implements OnInit {
     autoplay: false
   };
 
-  headerBGUrl: string;
 
   constructor(private moviesService: MoviesService) {
   }

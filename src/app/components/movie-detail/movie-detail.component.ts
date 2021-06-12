@@ -7,51 +7,51 @@ import {formatDate} from "../../utility/string.utility";
 
 
 @Component({
-    selector: "app-movie",
-    templateUrl: "./movie-detail.component.html",
-    styleUrls: ["./movie-detail.component.scss"]
+  selector: "app-movie",
+  templateUrl: "./movie-detail.component.html",
+  styleUrls: ["./movie-detail.component.scss"]
 })
 export class MovieDetailComponent {
 
-    public image: string;
-    public movie: Media | null;
-    public details: MovieDetails | null;
-    public isLiked: boolean = false;
-    public isLoading: boolean = true;
+  public image: string;
+  public movie: Media | null;
+  public details: MovieDetails | null;
+  public isLiked: boolean = false;
+  public isLoading: boolean = true;
 
 
-    @Input()
-    set media(movie: Media | null) {
-        if (movie !== null) {
-            this.movie = movie;
-            this.movieService.getDetails(movie).subscribe(details => {
-                this.details = details;
-                this.isLoading = false;
-            });
-            this.tmdb.getConfiguration().subscribe(config => {
-                this.image = `${config.images.secure_base_url}${config.images.poster_sizes[4]}${movie.poster_path}`;
-            });
-        } else {
-            this.movie = null;
-            this.details = null;
-            this.isLoading = true;
-        }
+  @Input()
+  set media(movie: Media | null) {
+    if (movie !== null) {
+      this.movie = movie;
+      this.movieService.getDetails(movie).subscribe(details => {
+        this.details = details;
+        this.isLoading = false;
+      });
+      this.tmdb.getConfiguration().subscribe(config => {
+        this.image = `${config.images.secure_base_url}${config.images.poster_sizes[4]}${movie.poster_path}`;
+      });
+    } else {
+      this.movie = null;
+      this.details = null;
+      this.isLoading = true;
     }
+  }
 
-    constructor(
-        private tmdb: TMDBService,
-        private modal: MovieModalService,
-        private movieService: MoviesService,
-        private renderer: Renderer2
-    ) {
-        this.renderer.listen('window', 'click',(e:Event)=>{
-            if(e.target == document.getElementById('movie-detail') && this.movie !== null){
-                this.hide();
-            }
-        });
-    }
+  constructor(
+    private tmdb: TMDBService,
+    private modal: MovieModalService,
+    private movieService: MoviesService,
+    private renderer: Renderer2
+  ) {
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (e.target == document.getElementById('movie-detail') && this.movie !== null) {
+        this.hide();
+      }
+    });
+  }
 
-    public hide = (): void  =>this.modal.showMovie(null);
+  public hide = (): void => this.modal.showMovie(null);
 
-    public getMovieDate = () => formatDate(this.details.release_date);
+  public getMovieDate = () => formatDate(this.details.release_date);
 }

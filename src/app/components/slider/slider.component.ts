@@ -16,7 +16,8 @@ export class SliderComponent implements OnInit {
   @Input() movies: MovieResponse | null;
   @Input() title: string;
 
-  constructor(private tmdb: TMDBService, private modal: MovieModalService) { }
+  constructor(private tmdb: TMDBService, private modal: MovieModalService) {
+  }
 
   ngOnInit(): void {
   }
